@@ -24,4 +24,12 @@ describe Restaurant do
   	expect(restaurant.availability(10,t)).to be true
   end
 
+  it 'should return false when restaurant is full at 6pm and reservation is put in at 6pm' do
+  	party_time = DateTime.new(2014,4,18,18,00)
+  	res = Reservation.create(restaurant: restaurant, party_size: 100, party_time: party_time)
+
+  	t = DateTime.new(2014,4,18,18,00)
+  	expect(restaurant.availability(20,t)).to be false
+  end
+
 end
