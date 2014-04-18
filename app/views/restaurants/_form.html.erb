@@ -1,0 +1,13 @@
+<%= form_for(@restaurant) do |f| %>
+	<div>
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :capacity %><br />
+		<%= f.number_field :capacity %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>

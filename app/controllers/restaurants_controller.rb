@@ -30,6 +30,7 @@ class RestaurantsController < ApplicationController
 			redirect_to restaurant_path(@restaurant)
 		else
 			redirect_to restaurant_url(@restaurant)
+		end
 	end
 
 	def destroy

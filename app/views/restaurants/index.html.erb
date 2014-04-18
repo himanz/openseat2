@@ -1,0 +1,5 @@
+<h1>Index of Restaurants</h1>
+<% @restaurants.all do |restaurant| %>
+	<p>Name: <%= restaurant.name %></p>
+	<p>Capacity: <%= restaurant.capacity %></p>
+<% end %>
