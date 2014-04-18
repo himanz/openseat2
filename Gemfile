@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'calendar_date_select', '~> 2.0.0'
+
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0.0.beta'
 end
