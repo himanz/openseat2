@@ -1,3 +1,44 @@
 <p><%= link_to "Back", restaurants_path %></p>	
 <h1>Name: <%= @restaurant.name %></h1>
 <p>Capacity <%= @restaurant.capacity %></p>
+
+<h2>Reservations</h2>
+  <% @restaurant.reservations.each do |reservation| %>
+    <p>
+    	<%= reservation.party_size %>
+    	<br>
+    	<% if reservation.user != nil %>
+	    	<em> by <%= reservation.user.first_name %></em>
+	    	Added on: <%= reservation.created_at %>
+    	<% end %>
+    </p>
+  <% end %>
+
+  <h3>New Reservation</h3>
+  <%= form_for([@restaurant, @reservation]) do |f| %>
+    <% if @reservation.errors.any? %>
+      <div>
+      	<h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      	<ul>
+        <% @reservation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      	</ul>
+      </div>
+    <% end %>
+
+    <div>
+    	Select Time Slot
+    	<%= f.select(:party_time, options_for_select(1..3))%>
+    	<%= options_for_select ([['1', '1'], ['2', '2'], ['3', '3']])%>
+    </div>
+
+    <div>
+    	<%= f.label :party_size %><br />
+    	<%= f.number_field :party_size %>
+    </div>
+    <div>
+    	<%= f.submit %>
+    </div>
+  <% end %>
