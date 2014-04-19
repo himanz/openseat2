@@ -6,12 +6,8 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-		@reservation = @restaurant.reservations.build(reservation_params)
+		@reservation = @restaurant.reservations.build(reservation_params)		
 		if @reservation.save
-			event = params[:reservation]
-			year = event["party_time(1i)"].to_i
-			month = event["party_time(2i)"].to_i
-			day = event["party_time(3i)"].to_i 
 			redirect_to restaurants_path, notice: 'Reservation has been made'
 		else
 			render :action => :show
@@ -26,7 +22,7 @@ class ReservationsController < ApplicationController
 	private
 
 	def reservation_params
-		params.require(:reservation).permit(:user_id, :restaurant_id, :party_size, :party_time)
+		params.require(:reservation).permit(:user_id, :restaurant_id, :party_size, :party_time, :party_date)
 	end
 
 	def load_restaurant

@@ -29,10 +29,13 @@
     <% end %>
 
     <div>
-    	Select Time Slot
+    	Select Date Slot
     	<%= f.date_select(:party_time, start_year: 2014, use_month_numbers: true) %> 
     </div>
-      
+    <div>
+      Select Time Slot
+      <%= f.time_select(:party_time, :discard_minute => true, :prompt => {:minute => '00'}) %>
+    </div>
     <div>
     	<%= f.label :party_size %><br />
     	<%= f.number_field :party_size %>
