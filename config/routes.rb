@@ -1,4 +1,5 @@
 Openseat2::Application.routes.draw do
+  root 'restaurants#index'
   resources :restaurants do
     resources :reservations, :except => [:index]
   end
