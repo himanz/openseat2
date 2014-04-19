@@ -23,7 +23,7 @@
 
 <% if current_user %>
 
-  <% if current_user.owner == '1' %>
+  <% if current_user.owner == '1' && @restaurant.user_id == current_user.id%>
     <h2>Reservations</h2>
   	  <% @restaurant.reservations.each do |reservation| %>
   	    <p>
