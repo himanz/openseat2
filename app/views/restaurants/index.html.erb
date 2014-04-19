@@ -1,5 +1,9 @@
-<p><%= link_to "New Restaurant", new_restaurant_path %> | <%= link_to "New User", new_user_path %></p>
+<p><%= link_to "New User", new_user_path %></p>
+
 <% if current_user %>
+  <% if current_user.owner == '1' %>
+    <%= link_to "New Restaurant", new_restaurant_path %>
+  <% end %>
   <p><%= link_to "User Info", user_url(current_user) %></p>
 <% end %>
 <h1>Index of Restaurants</h1>
