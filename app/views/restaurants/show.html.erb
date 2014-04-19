@@ -41,7 +41,9 @@
     <div>
     	<%= f.label :party_size %><br />
     	<%= f.number_field :party_size %>
+      <%= f.hidden_field :user_id, :value => @current_user.id %>
     </div>
+
     <div>
     	<%= f.submit %>
     </div>
