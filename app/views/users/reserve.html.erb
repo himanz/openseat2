@@ -1,3 +1,4 @@
+<p><%= link_to "Back", user_path(@user) %></p>
 <h1>Index of Reservations made by <%= @user.name %></h1>
 <% count = 1 %>
 <% @user.reservations.each do |reservation| %>
