@@ -2,6 +2,25 @@
 <h1>Name: <%= @restaurant.name %></h1>
 <p>Capacity <%= @restaurant.capacity %></p>
 
+<% if @restaurant.errors.any? %>
+    <div class="alert alert-block">
+        <ul>
+            <% @restaurant.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<% if @reservation.errors.any? %>
+    <div class="alert alert-block">
+        <ul>
+            <% @reservation.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
 <% if current_user %>
 
   <% if current_user.owner == '1' %>
@@ -20,18 +39,7 @@
 
   <h3>New Reservation</h3>
   <%= form_for([@restaurant, @reservation]) do |f| %>
-    <% if @reservation.errors.any? %>
-      <div>
-      	<h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-
-      	<ul>
-        <% @reservation.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      	</ul>
-      </div>
-    <% end %>
-
+  
     <div>
     	Reservation Date Slot
     	<%= f.date_select(:party_date, start_year: 2014, use_month_numbers: true) %> 

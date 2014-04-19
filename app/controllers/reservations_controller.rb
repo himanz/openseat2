@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
 			if @reservation.save
 				redirect_to restaurants_path, notice: 'Reservation has been made'
 			else
-				redirect_to restaurant_path(@restaurant), notice: 'Restaurant is FULL, reservation not made for that time!'
+				render 'restaurants/show'
 			end
 		end
 	end
