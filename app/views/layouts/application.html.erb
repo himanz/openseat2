@@ -34,6 +34,7 @@
   </div>
 </header>
 
+<div class="center">
   <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
   <% end %>
@@ -44,8 +45,11 @@
 <% if current_user %>
   <p>Signed in as <%= current_user.name %></p>
 <% end %>
+</div class ="center">
 
-<%= yield %>
+<div class="center">
+  <%= yield %>
+</div>
 
 <footer class="footer">
   <small>
