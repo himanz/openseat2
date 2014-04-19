@@ -1,0 +1,4 @@
+<h1>Index of Reservations made by <%= @user.name %></h1>
+<% @user.reservations.each do |reservation| %>
+<p><%= reservation.party_time %></p>
+<% end %>

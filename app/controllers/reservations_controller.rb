@@ -8,7 +8,9 @@ class ReservationsController < ApplicationController
 
 	def create
 		@reservation = @restaurant.reservations.build(reservation_params)
-		
+		event = params[:reservation]
+		@reservation.party_time = DateTime.new(event["party_date(1i)"].to_i,event["party_date(2i)"].to_i,event["party_date(3i)"].to_i,event["party_time(4i)"].to_i,00)
+
 		if @reservation.party_size == nil
 			redirect_to restaurant_url(@restaurant), :notice => "Please enter a number for capacity!"
 		else		
