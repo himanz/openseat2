@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  before_filter :ensure_logged_in, :only => [:show]
+
 	def index
 		@restaurants = Restaurant.all
 	end

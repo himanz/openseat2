@@ -2,17 +2,19 @@
 <h1>Name: <%= @restaurant.name %></h1>
 <p>Capacity <%= @restaurant.capacity %></p>
 
-<h2>Reservations</h2>
-  <% @restaurant.reservations.each do |reservation| %>
-    <p>
-    	<%= reservation.party_size %>
-    	<br>
-    	<% if reservation.user != nil %>
-	    	<em> by <%= reservation.user.first_name %></em>
-	    	Added on: <%= reservation.created_at %>
-    	<% end %>
-    </p>
-  <% end %>
+<% if current_user %>
+
+	<h2>Reservations</h2>
+	  <% @restaurant.reservations.each do |reservation| %>
+	    <p>
+	    	<%= reservation.party_size %>
+	    	<br>
+	    	<% if reservation.user != nil %>
+		    	<em> by <%= reservation.user.name %></em>
+		    	Added on: <%= reservation.created_at %>
+	    	<% end %>
+	    </p>
+	  <% end %>
 
   <h3>New Reservation</h3>
   <%= form_for([@restaurant, @reservation]) do |f| %>
@@ -44,3 +46,7 @@
     	<%= f.submit %>
     </div>
   <% end %>
+
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to do a reservation.</p>
+<% end %> 
