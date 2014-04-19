@@ -20,6 +20,12 @@
 		<%= f.number_field :capacity %>
 	</div>
 	<div>
+    Starting Reservations at
+	  <%= f.select :start_res, ((0..23).map {|i| [i,i] }) %><br />
+	  Ending Reservations at
+	  <%= f.select :end_res, ((0..23).map {|i| [i,i] }) %><br />
+	</div>
+	<div>
 		<%= f.submit %>
 	</div>
 <% end %>

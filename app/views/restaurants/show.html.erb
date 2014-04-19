@@ -36,7 +36,7 @@
     </div>
     <div>
       Reservation Time Slot
-      <%= f.time_select(:party_time, :discard_minute => true, start_hour: 12, end_hour: 21, :prompt => {:minute => '00'}) %>
+      <%= f.time_select(:party_time, :discard_minute => true, start_hour: @restaurant.start_res, end_hour: @restaurant.end_res, :prompt => {:minute => '00'}) %>
     </div>
     <div>
     	<%= f.label :party_size %><br />
