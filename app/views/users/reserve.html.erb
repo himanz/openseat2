@@ -1,6 +1,9 @@
 <h1>Index of Reservations made by <%= @user.name %></h1>
+<% count = 1 %>
 <% @user.reservations.each do |reservation| %>
+<h2>Reservation <%= count %></h2>
 <p><%= reservation.restaurant.name %></p>
 <p>Reservation at: <%= reservation.party_time %></p>
 <p>--------------------------</p>
+<% count += 1 %>
 <% end %>
