@@ -1,8 +1,3 @@
-<% if current_user %>
-  <% if current_user.owner == '1' %>
-    <%= link_to "New Restaurant", new_restaurant_path %>
-  <% end %>
-<% end %>
 <h1>Index of Restaurants</h1>
 <% @restaurants.each do |restaurant| %>
 	<p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
