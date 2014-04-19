@@ -8,4 +8,5 @@
 <% @restaurants.each do |restaurant| %>
 	<p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
 	<p>Capacity: <%= restaurant.capacity %></p>
+	<p>-----------------------</p>
 <% end %>	
