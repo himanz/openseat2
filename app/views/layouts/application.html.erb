@@ -16,7 +16,7 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home", restaurants_path %></li>
-          <li><%= link_to "Help",    '#' %></li>
+          <li><%= link_to "Profile", user_url(current_user) %></li>
           <% if current_user %>
             <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
           <% else %>
