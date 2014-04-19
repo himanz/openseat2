@@ -30,10 +30,9 @@
 
     <div>
     	Select Time Slot
-    	<%= f.select(:party_time, options_for_select(1..3))%>
-    	<%= options_for_select ([['1', '1'], ['2', '2'], ['3', '3']])%>
+    	<%= f.date_select(:party_time, start_year: 2014, use_month_numbers: true) %> 
     </div>
-
+      
     <div>
     	<%= f.label :party_size %><br />
     	<%= f.number_field :party_size %>

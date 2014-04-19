@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	before_filter :load restaurant
+	before_filter :load_restaurant
 
 	def show
 		@reservation = Reservation.find(params[:id])
@@ -8,6 +8,10 @@ class ReservationsController < ApplicationController
 	def create
 		@reservation = @restaurant.reservations.build(reservation_params)
 		if @reservation.save
+			event = params[:reservation]
+			year = event["party_time(1i)"].to_i
+			month = event["party_time(2i)"].to_i
+			day = event["party_time(3i)"].to_i 
 			redirect_to restaurants_path, notice: 'Reservation has been made'
 		else
 			render :action => :show
