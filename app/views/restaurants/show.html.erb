@@ -3,7 +3,8 @@
 <p>Capacity <%= @restaurant.capacity %></p>
 
 <% if current_user %>
-	<h2>Reservations</h2>
+
+  <h2>Reservations</h2>
 	  <% @restaurant.reservations.each do |reservation| %>
 	    <p>
 	    	<%= reservation.party_size %>
@@ -30,11 +31,11 @@
     <% end %>
 
     <div>
-    	Select Date Slot
+    	Reservation Date Slot
     	<%= f.date_select(:party_time, start_year: 2014, use_month_numbers: true) %> 
     </div>
     <div>
-      Select Time Slot
+      Reservation Time Slot
       <%= f.time_select(:party_time, :discard_minute => true, start_hour: 12, end_hour: 21, :prompt => {:minute => '00'}) %>
     </div>
     <div>
