@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418220120) do
+ActiveRecord::Schema.define(version: 20140419011046) do
 
   create_table "reservations", force: true do |t|
     t.integer  "restaurant_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140418220120) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "party_time"
+    t.datetime "party_date"
   end
 
   create_table "restaurants", force: true do |t|

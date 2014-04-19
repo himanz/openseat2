@@ -2,8 +2,9 @@ class Reservation < ActiveRecord::Base
 	belongs_to :restaurant
 	belongs_to :user
 
-  validates :restaurant, :presence => true
+  validates :restaurant, presence: true
 	validate :availability
+	validates :party_size, numericality: { only_integer: true }
 
 	private
 	def availability

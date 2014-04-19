@@ -3,7 +3,6 @@
 <p>Capacity <%= @restaurant.capacity %></p>
 
 <% if current_user %>
-
 	<h2>Reservations</h2>
 	  <% @restaurant.reservations.each do |reservation| %>
 	    <p>
