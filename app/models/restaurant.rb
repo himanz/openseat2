@@ -1,7 +1,7 @@
 class Restaurant < ActiveRecord::Base
 	has_many :reservations
 
-	validates_presence_of :name
+	validates_presence_of :name, :address
 	validates :capacity, numericality: { only_integer: true } 
 
 	def availability(party_size, party_time)
