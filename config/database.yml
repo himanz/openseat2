@@ -20,5 +20,5 @@ test:
 
 production:
   adapter: postgresql
-  database: openseat
+  database: openseat2
   host: localhost
