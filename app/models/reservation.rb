@@ -9,7 +9,7 @@ class Reservation < ActiveRecord::Base
 	private
 	def availability
 		if !restaurant.availability(party_size, party_time)
-			errors.add(:base, "restaurant is full!")
+			errors.add(:base, "Restaurant is full, pick another reservation time or date!")
 		end
 	end
 end
