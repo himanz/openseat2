@@ -40,6 +40,7 @@
   <% my_reserve.each do |reserve| %>
     <p>When: <%= reserve.party_time %><p>
     <p>Party Size: <%= reserve.party_size %></p>
+    <p><%= link_to "Delete Reservation", restaurant_reservation_path(reserve.restaurant_id,reserve), :confirm => "Delete this reservation?", :method => :delete %></p>
     <p>-----------------------</p>
   <% end %>
 

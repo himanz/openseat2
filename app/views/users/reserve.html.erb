@@ -7,7 +7,7 @@
 <p><%= reservation.restaurant.address %></p>
 <p>Party Size: <%= reservation.party_size %></p>
 <p>Reservation at: <%= reservation.party_time %></p>
-<p><%= link_to "Delete Reservation", restaurant_reservation_path(reservation.restaurant_id,reservation), :confirm => "Delete this?", :method => :delete %></p>
+<p><%= link_to "Delete Reservation", restaurant_reservation_path(reservation.restaurant_id,reservation), :confirm => "Delete this reservation?", :method => :delete %></p>
 <p>--------------------------</p>
 <% count += 1 %>
 <% end %>
