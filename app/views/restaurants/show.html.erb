@@ -37,6 +37,14 @@
   	  <% end %>
   <% end %>
 
+  <h3>My Reservations for <%= @restaurant.name %></h3>
+  <% my_reserve = @restaurant.reservations.where(user_id: current_user.id) %>
+  <% my_reserve.each do |reserve| %>
+    <p>When: <%= reserve.party_time %><p>
+    <p>Party Size: <%= reserve.party_size %></p>
+    <p>-----------------------</p>
+  <% end %>
+
   <h3>New Reservation</h3>
   <%= form_for([@restaurant, @reservation]) do |f| %>
   
