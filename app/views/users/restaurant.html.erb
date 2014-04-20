@@ -1,3 +1,4 @@
+<p><%= link_to "Home", restaurants_path %></p>
 <h1>My Restaurants</h1>
 <% current_user.restaurants.each do |restaurant| %>
 	<p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
