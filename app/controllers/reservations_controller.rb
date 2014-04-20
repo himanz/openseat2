@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
 			redirect_to restaurant_url(@restaurant), :notice => "Please enter a number for capacity!"
 		else		
 			if @reservation.save
-				redirect_to restaurants_path, notice: 'Reservation has been made'
+				redirect_to restaurant_path(@restaurant), notice: 'Reservation has been made'
 			else
 				render 'restaurants/show'
 			end
