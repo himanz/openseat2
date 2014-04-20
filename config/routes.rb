@@ -1,5 +1,7 @@
 Openseat2::Application.routes.draw do
   root 'restaurants#index'
+  get 'static_pages/about'
+  get 'static_pages/contact'
   resources :restaurants do
     resources :reservations, :except => [:index]
   end
