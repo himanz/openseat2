@@ -7,7 +7,8 @@ Openseat2::Application.routes.draw do
   get 'users/:id/reserve', to: 'users#reserve', as: 'user_reserve'
   get 'users/:id/restaurant', to: 'users#restaurant', as: 'owner_user'
   resources :sessions, :only => [:new, :create, :destroy]
-  
+ 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
