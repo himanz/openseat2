@@ -26,15 +26,12 @@
 
   <% if current_user.owner == '1' && @restaurant.user_id == current_user.id%>
     <h2>Reservations</h2>
-  	  <% @restaurant.reservations.each do |reservation| %>
-  	    <p>
-  	    	<%= reservation.party_size %>
-  	    	<br>
+  	  <% @restaurant.reservations.each do |reservation| %> 	    
+  	    	<p>Party Size: <%= reservation.party_size %></p>
   	    	<% if reservation.user != nil %>
-  		    	<em> by <%= reservation.user.name %></em>
-  		    	Added on: <%= reservation.created_at %>
+  		    	<p><em> by <%= reservation.user.name %></em>Added on: <%= reservation.created_at %></p>
+            <p>-----------------------</p>
   	    	<% end %>
-  	    </p>
   	  <% end %>
   <% end %>
 
