@@ -18,6 +18,10 @@
 		<%= f.hidden_field :user_id, :value => current_user.id %>
 	</div>
 	<div>
+		<%= f.label :address %><br />
+		<%= f.text_field :address %>
+	</div>
+	<div>
 		<%= f.label :capacity %><br />
 		<%= f.number_field :capacity %>
 	</div>

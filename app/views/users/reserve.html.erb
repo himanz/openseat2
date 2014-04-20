@@ -4,6 +4,7 @@
 <% @user.reservations.each do |reservation| %>
 <h2>Reservation <%= count %></h2>
 <p><%= reservation.restaurant.name %></p>
+<p><%= reservation.restaurant.address %></p>
 <p>Reservation at: <%= reservation.party_time %></p>
 <p>--------------------------</p>
 <% count += 1 %>
