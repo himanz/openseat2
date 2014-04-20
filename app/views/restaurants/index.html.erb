@@ -1,4 +1,4 @@
-<h1>Index of Restaurants</h1>
+<h1>Restaurants</h1>
 <% @restaurants.each do |restaurant| %>
 	<p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
 	<p>Capacity: <%= restaurant.capacity %></p>
