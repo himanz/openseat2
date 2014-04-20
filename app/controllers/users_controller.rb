@@ -29,6 +29,10 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def owner
+		@user = User.find(params[:id])
+	end
+
 	def reserve
 		@user = User.find(params[:id])
 	end

@@ -1,0 +1,8 @@
+<h1>My Restaurants</h1>
+<% current_user.restaurants.each do |restaurant| %>
+	<p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+	<p>Capacity: <%= restaurant.capacity %></p>
+	<p>Start Reservations: <%= restaurant.start_res %></p>
+	<p>End Reservations: <%= restaurant.end_res %></p>
+	<p>---------------------------</p>
+<% end %>
