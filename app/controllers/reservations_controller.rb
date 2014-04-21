@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
 		@reservation.party_time = DateTime.new(event["party_date(1i)"].to_i,event["party_date(2i)"].to_i,event["party_date(3i)"].to_i,event["party_time(4i)"].to_i,00)
 
 		if @reservation.party_size == nil
-			redirect_to restaurant_url(@restaurant), :notice => "Please enter a number for capacity!"
+			redirect_to restaurant_url(@restaurant), :alert => "Please enter a number for capacity!"
 		else		
 			if @reservation.save
 				redirect_to restaurant_path(@restaurant), notice: 'Reservation has been made'
