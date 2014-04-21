@@ -18,6 +18,7 @@
           <li><%= link_to "Home", restaurants_path %></li>
           
           <% if current_user %>
+            <li><%= link_to "My Reservations", user_reserve_path(current_user)%></li>
             <% if current_user.owner == '1' %>
               <li><%= link_to "Add Restaurant", new_restaurant_path %></li>
               <li><%= link_to "My Restaurants", owner_user_path(current_user) %></li>
