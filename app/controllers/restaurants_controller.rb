@@ -2,7 +2,11 @@ class RestaurantsController < ApplicationController
   before_filter :ensure_logged_in, :only => [:show]
 
 	def index
-		@restaurants = Restaurant.all
+		@restaurants = if params[:search]
+			Restaurant.where("lower(name) like ?", "%#{params[:search]}%")
+		else
+			Restaurant.all
+		end
 	end
 
 	def show
