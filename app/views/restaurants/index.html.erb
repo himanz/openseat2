@@ -8,9 +8,24 @@
   <%= render @restaurants %>
 </div>
 
-<% @restaurants.each do |restaurant| %>
-	<p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
-	<p>Address: <%= restaurant.address %></p>
-	<p>Capacity: <%= restaurant.capacity %></p>
-	<p>-----------------------</p>
-<% end %>	
+
+
+<script type="text/javascript">
+  function display_search_results() {
+  	if (this.readyState === 4) {
+  		console.log(this);
+  		document.getElementbyId('restaurants').innerHTML = this.responseText;
+  	}
+  }
+
+  var form = document.getElementbyId('search-form');
+  form.addEventListener('submit', function(event) {
+  	event.preventDefault();
+  	var searchValue = document.getElementbyId('search').value;
+  	
+  	var xhr = new XMLHttpRequest();
+  	xhr.onload = display_search_results;
+  	xhr.open('GET', '/restaurants/search?search=' + searchValue, true);
+  	xhr.send();
+  });
+</script>

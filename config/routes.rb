@@ -4,6 +4,7 @@ Openseat2::Application.routes.draw do
   get 'static_pages/contact'
   resources :restaurants do
     resources :reservations, :except => [:index]
+    get 'search', :on => :collection
   end
   resources :users, :except => [:index, :destroy]
   get 'users/:id/reserve', to: 'users#reserve', as: 'user_reserve'

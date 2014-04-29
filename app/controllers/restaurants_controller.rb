@@ -9,6 +9,11 @@ class RestaurantsController < ApplicationController
 		end
 	end
 
+  def search
+  	@restaurants = Restaurant.where("lower(name) like ?", "%#{params[:search]}%")
+  	render @restaurants
+  end
+
 	def show
 		@restaurant = Restaurant.find(params[:id])
 
