@@ -4,6 +4,10 @@
   <%= submit_tag "Search" %>
 <% end %>
 
+<div id="restaurants">
+  <%= render @restaurants %>
+</div>
+
 <% @restaurants.each do |restaurant| %>
 	<p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
 	<p>Address: <%= restaurant.address %></p>
